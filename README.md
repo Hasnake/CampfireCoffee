@@ -1,5 +1,4 @@
-# CampfireCoffee
-# Campfire Coffee - Lab Project for Week 2
+# CampfireCoffee_Lab Project for Week 2
 
 ### Background
 
