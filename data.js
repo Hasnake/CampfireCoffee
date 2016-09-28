@@ -1,32 +1,31 @@
 'use strict';
-var pikePlaceMarket = {
-  //numberOfCustomers: 'A random number of customers for each hour of operation that falls between the minimum and maximum hourly boundaries',
-  numberOfCustomers:[],
-  // getRandom:function(minimum,maximum){
-  //   return Math.random()*(maximum-minimum)+minimum;
-  // }
-  //numberOfCups: 'The projected cups sold per hour at each location (based on the rate of cups/customer),
-  // plus daily totals for each location and the company as a whole'],
-  //for pikePlaceMarket Average Cups/Cust is 1.2
-  numberOfCups :1.2 * numberOfCustomers,
-  numberOfPounds:'you are right!',
-  amountOfBeansInPounds: this.numberOfPounds * (1 / 16),
-  amountOfToGo:[],
-  //for pikePlaceMarket Average To-Go Pounds/Cust is 0.34
-  userAnswer: null,
-  totalCorrect: 0,
-  askQuestion: function() {
-    this.userAnswer = prompt(this.questionText);
-  },
-  checkAnswer: function(answer) {
-    if (this.correctAnswers.indexOf(answer) > -1) {
-      console.log(this.rightFeedback);
-      this.totalCorrect += 1;
-    } else {
-      console.log(this.wrongFeedback);
-    }
+var store = {
+  name:'Pike Place Market',
+  minCustomersPerHour : null,
+  maxCustomersPerHour:null,
+  averageCupsPerCust:null,
+  averagetogoPoundsPerCust:null,
+
+
+  numberOfCustomers: function (){
+    return Math.random() * (this.maxCustomersPerHour - this.minCustomersPerHour) + (this.minCustomersPerHour);},
+
+  numberOfCupsSoldPerHour :function() {
+    this.averageCupsPerCust * this.numberOfCustomers;},
+
+  numberOfPoundsSoldPerHour :function(){
+    this.averagetogoPoundsPerCust * this.numberOfCustomers;},
+  amountOfBeansInPoundsNeededForCups :function(){
+    this.numberOfCupsSoldPerHour / 16;},
+  numberOfEmployees: function(){
+    (this.numberOfCustomers / 30);},
+  totalAmountOfBeansInPoundsSoldPerHour:function(){
+    (this.amountOfBeansInPoundsNeededForCups) + (this.numberOfPoundsSoldPerHour);
   }
 };
 
-cityQuestion.askQuestion();
-cityQuestion.checkAnswer(cityQuestion.userAnswer);
+console.log(store.numberOfCustomers(35,14));
+console.log(store.numberOfCupsSoldPerHour(1.2));
+console.log(store.numberOfPoundsSoldPerHour(0.34));
+console.log(store.amountOfBeansInPoundsNeededForCups());
+console.log(store.numberOfEmployees());
