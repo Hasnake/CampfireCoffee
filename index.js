@@ -1,4 +1,8 @@
 'use strict';
+var image1El = document.createElement('IMG');
+image1El.textContent = 'Public facing Page';
+image1El.src = 'campfire-coffee.jpg';
+document.body.appendChild(image1El);
 var h1El = document.createElement('h1');
 h1El.textContent = 'Public facing Page';
 document.body.appendChild(h1El);

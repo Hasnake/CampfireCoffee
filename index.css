@@ -1,8 +1,16 @@
-body {
-  font-size: 30px;
-  font-family: Helvetica, sans-serif;
+body
+{
+  animation: pulse 3s infinite;
 }
 
+@keyframes pulse {
+  0% {
+    background-color: #00aabb;
+  }
+  100% {
+    background-color: 00abcd;
+  }
+}
 h1{
   margin: 0;
 }
