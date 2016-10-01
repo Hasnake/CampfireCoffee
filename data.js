@@ -147,7 +147,7 @@ function makeRow() {
   var row2El = document.createElement('tr');
   var row3El = document.createElement('tr');
   var row4El = document.createElement('tr');
-  // var row5El = document.createElement('tr');
+  var row5El = document.createElement('tr');
 
 
   //REPEAT THIS PART
@@ -517,78 +517,146 @@ function makeRow() {
   hourlyBeanCell15D.textContent = allStores[4].beansPerHour[15];
   row4El.appendChild(hourlyBeanCell15D);
 
-  //making the fifth row
-  // var shopesCellE = document.createElement('td');
-  // shopesCellE.textContent = allStores[5].name;//give content to cell
-  // row5El.appendChild(shopesCellE);//append cell to the row
+  // making the fifth row
+  var shopesCellE = document.createElement('td');
+  shopesCellE.textContent = 'Totals';//give content to cell
+  row5El.appendChild(shopesCellE);//append cell to the row
+
+  var dailyLocationTotalCellE = document.createElement('td');  //make a cell
+  var total = 0;
+  for(var i = 0;i < allStores.length;i ++){
+    total += allStores[i].totalBeansPerDay;
+  }
+  dailyLocationTotalCellE.textContent = round(total,1);//give content to cell
+  row5El.appendChild(dailyLocationTotalCellE);  //append cell to the row
+
+  var hourlyBeanCell0E = document.createElement('td');
+  var totalindexhour0 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour0 += allStores[i].beansPerHour[0];
+  }
+  hourlyBeanCell0E.textContent = round(totalindexhour0,1);
+  row5El.appendChild(hourlyBeanCell0E);
   //
-  // var dailyLocationTotalCellE = document.createElement('td');  //make a cell
-  // dailyLocationTotalCellE.textContent = allStores[5].totalBeansPerDay;//give content to cell
-  // row5El.appendChild(dailyLocationTotalCellE);  //append cell to the row
+  var hourlyBeanCell1E = document.createElement('td');
+  var totalindexhour1 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour1 += allStores[i].beansPerHour[1];
+  }
+  hourlyBeanCell1E.textContent = round(totalindexhour0,1);
+  row5El.appendChild(hourlyBeanCell1E);
+
+  var hourlyBeanCell2E = document.createElement('td');
+  var totalindexhour2 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour2 += allStores[i].beansPerHour[2];
+  }
+  hourlyBeanCell2E.textContent = round(totalindexhour2,1);
+  row5El.appendChild(hourlyBeanCell2E);
   //
-  // var hourlyBeanCell0E = document.createElement('td');
-  // hourlyBeanCell0E.textContent = allStores[5].beansPerHour[0];
-  // row5El.appendChild(hourlyBeanCell0E);
+  var hourlyBeanCell3E = document.createElement('td');
+  var totalindexhour3 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour3 += allStores[i].beansPerHour[3];
+  }
+  hourlyBeanCell3E.textContent = round(totalindexhour3,1);
+  row5El.appendChild(hourlyBeanCell3E);
   //
-  // var hourlyBeanCell1E = document.createElement('td');
-  // hourlyBeanCell1E.textContent = allStores[5].beansPerHour[1];
-  // row5El.appendChild(hourlyBeanCell1E);
+  var hourlyBeanCell4E = document.createElement('td');
+  var totalindexhour4 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour4 += allStores[i].beansPerHour[4];
+  }
+  hourlyBeanCell4E.textContent = round(totalindexhour4,1);
+  row5El.appendChild(hourlyBeanCell4E);
   //
-  // var hourlyBeanCell2E = document.createElement('td');
-  // hourlyBeanCell2E.textContent = allStores[5].beansPerHour[2];
-  // row5El.appendChild(hourlyBeanCell2E);
-  //
-  // var hourlyBeanCell3E = document.createElement('td');
-  // hourlyBeanCell3E.textContent = allStores[5].beansPerHour[3];
-  // row5El.appendChild(hourlyBeanCell3E);
-  //
-  // var hourlyBeanCell4E = document.createElement('td');
-  // hourlyBeanCell4E.textContent = allStores[5].beansPerHour[4];
-  // row5El.appendChild(hourlyBeanCell4E);
-  //
-  // var hourlyBeanCell5E = document.createElement('td');
-  // hourlyBeanCell5E.textContent = allStores[5].beansPerHour[5];
-  // row5El.appendChild(hourlyBeanCell5E);
-  //
-  // var hourlyBeanCell6E = document.createElement('td');
-  // hourlyBeanCell6E.textContent = allStores[5].beansPerHour[6];
-  // row5El.appendChild(hourlyBeanCell6E);
-  //
-  // var hourlyBeanCell7E = document.createElement('td');
-  // hourlyBeanCell7E.textContent = allStores[5].beansPerHour[7];
-  // row5El.appendChild(hourlyBeanCell7E);
-  //
-  // var hourlyBeanCell8E = document.createElement('td');
-  // hourlyBeanCell8E.textContent = allStores[5].beansPerHour[8];
-  // row5El.appendChild(hourlyBeanCell8E);
-  //
-  // var hourlyBeanCell9E = document.createElement('td');
-  // hourlyBeanCell9E.textContent = allStores[5].beansPerHour[9];
-  // row5El.appendChild(hourlyBeanCell9E);
-  //
-  // var hourlyBeanCell10E = document.createElement('td');
-  // hourlyBeanCell10E.textContent = allStores[5].beansPerHour[10];
-  // row5El.appendChild(hourlyBeanCell10E);
-  //
-  // var hourlyBeanCell11E = document.createElement('td');
-  // hourlyBeanCell11E.textContent = allStores[5].beansPerHour[11];
-  // row5El.appendChild(hourlyBeanCell11E);
-  //
-  // var hourlyBeanCell12E = document.createElement('td');
-  // hourlyBeanCell12E.textContent = allStores[5].beansPerHour[12];
-  // row5El.appendChild(hourlyBeanCell12E);
-  //
-  // var hourlyBeanCell13E = document.createElement('td');
-  // hourlyBeanCell13E.textContent = allStores[5].beansPerHour[13];
-  // row5El.appendChild(hourlyBeanCell13E);
-  //
-  // var hourlyBeanCell14E = document.createElement('td');
-  // hourlyBeanCell14E.textContent = allStores[5].beansPerHour[14];
-  // row5El.appendChild(hourlyBeanCell14E);
-  //
-  // var hourlyBeanCell15E = document.createElement('td');
-  // hourlyBeanCell15E.textContent = allStores[5].beansPerHour[15];
-  // row5El.appendChild(hourlyBeanCell15E);
+  var hourlyBeanCell5E = document.createElement('td');
+  var totalindexhour5 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour5 += allStores[i].beansPerHour[5];
+  }
+  hourlyBeanCell5E.textContent = round(totalindexhour5,1);
+  row5El.appendChild(hourlyBeanCell5E);
+
+  var hourlyBeanCell6E = document.createElement('td');
+  var totalindexhour6 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour6 += allStores[i].beansPerHour[6];
+  }
+  hourlyBeanCell6E.textContent = round(totalindexhour6,1);
+  row5El.appendChild(hourlyBeanCell6E);
+
+  var hourlyBeanCell7E = document.createElement('td');
+  var totalindexhour7 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour7 += allStores[i].beansPerHour[7];
+  }
+  hourlyBeanCell7E.textContent = round(totalindexhour7,1);
+  row5El.appendChild(hourlyBeanCell7E);
+
+  var hourlyBeanCell8E = document.createElement('td');
+  var totalindexhour8 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour8 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell8E.textContent = round(totalindexhour8,1);
+  row5El.appendChild(hourlyBeanCell8E);
+
+  var hourlyBeanCell9E = document.createElement('td');
+  var totalindexhour9 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour9 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell9E.textContent = round(totalindexhour9,1);
+  row5El.appendChild(hourlyBeanCell9E);
+
+  var hourlyBeanCell10E = document.createElement('td');
+  var totalindexhour10 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour10 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell10E.textContent = round(totalindexhour10,1);
+  row5El.appendChild(hourlyBeanCell10E);
+
+  var hourlyBeanCell11E = document.createElement('td');
+  var totalindexhour11 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour11 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell11E.textContent = round(totalindexhour11,1);
+  row5El.appendChild(hourlyBeanCell11E);
+
+  var hourlyBeanCell12E = document.createElement('td');
+  var totalindexhour12 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour12 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell12E.textContent = round(totalindexhour12,1);
+  row5El.appendChild(hourlyBeanCell12E);
+
+  var hourlyBeanCell13E = document.createElement('td');
+  var totalindexhour13 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour13 += allStores[i].beansPerHour[8];
+  }
+  hourlyBeanCell13E.textContent = round(totalindexhour13,1);
+  row5El.appendChild(hourlyBeanCell13E);
+
+  var hourlyBeanCell14E = document.createElement('td');
+  var totalindexhour14 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour14 += allStores[i].beansPerHour[15];
+  }
+  hourlyBeanCell14E.textContent = round(totalindexhour14,1);
+  row5El.appendChild(hourlyBeanCell14E);
+
+  var hourlyBeanCell15E = document.createElement('td');
+  var totalindexhour15 = 0;
+  for(i = 0;i < allStores.length;i ++){
+    totalindexhour15 += allStores[i].beansPerHour[15];
+  }
+  hourlyBeanCell15E.textContent = round(totalindexhour15,1);
+  row5El.appendChild(hourlyBeanCell15E);
 
 
 
