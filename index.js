@@ -1,11 +1,21 @@
 'use strict';
 var h1El = document.createElement('h1');
 h1El.textContent = 'Public facing Page';
-// var h1El = document.createElement('h1');
-// h1El.textContent = 'Internal Data Page';
 document.body.appendChild(h1El);
 var t = document.createTextNode('This is the public page for the camfire coffee project.');
 document.body.appendChild(t);
+
+var h2El = document.createElement('h1');
+h2El.textContent = 'Internal page';
+document.body.appendChild(h2El);
+
+var a = document.createElement('a');
+var linkText = document.createTextNode('Internal page');
+a.appendChild(linkText);
+a.title = 'Internal page' ;
+a.href = 'data.html';
+document.body.appendChild(a);
+
 var storeLocations = ['Pike Place Market','Capitol Hill','Seattle Public Library','South Lake Union','SeaTac Airport'];
 var storeLocationsEl = document.getElementById('storeLocations');
 var ulEl = document.createElement('ul');
