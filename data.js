@@ -4,9 +4,9 @@ var hours = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm','
 var randomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min) + min);
 };
-// var round = function (num, prec) {
-//   return parseFloat(num.toFixed(prec));
-// };
+var round = function (num, prec) {
+  return parseFloat(num.toFixed(prec));
+};
 
 var allStores = [ ];
 
@@ -131,6 +131,12 @@ function makeItAllHappen() {
 };
 makeItAllHappen();
 
+
+
+
+
+
+
 //get reference to table element
 var tableEl = document.getElementById('generated-table');
 
@@ -151,7 +157,7 @@ function makeRow() {
   row0El.appendChild(shopesCell);//append cell to the row
 
   var dailyLocationTotalCell = document.createElement('td');  //make a cell
-  dailyLocationTotalCell.textContent = allStores[0].totalBeansPerDay;//give content to cell
+  dailyLocationTotalCell.textContent = round((allStores[0].totalBeansPerDay),1);//give content to cell
   row0El.appendChild(dailyLocationTotalCell);  //append cell to the row
 
   var hourlyBeanCell0 = document.createElement('td');
@@ -224,7 +230,7 @@ function makeRow() {
   row1El.appendChild(shopesCell1);//append cell to the row
 
   var dailyLocationTotalCell1 = document.createElement('td');  //make a cell
-  dailyLocationTotalCell1.textContent = allStores[1].totalBeansPerDay;//give content to cell
+  dailyLocationTotalCell1.textContent = round((allStores[1].totalBeansPerDay),1);//give content to cell
   row1El.appendChild(dailyLocationTotalCell1);  //append cell to the row
 
   var hourlyBeanCell0A = document.createElement('td');
@@ -297,7 +303,7 @@ function makeRow() {
   row2El.appendChild(shopesCellB);//append cell to the row
 
   var dailyLocationTotalCellB = document.createElement('td');  //make a cell
-  dailyLocationTotalCellB.textContent = allStores[2].totalBeansPerDay;//give content to cell
+  dailyLocationTotalCellB.textContent = round((allStores[2].totalBeansPerDay),1);//give content to cell
   row2El.appendChild(dailyLocationTotalCellB);  //append cell to the row
 
   var hourlyBeanCell0B = document.createElement('td');
@@ -370,7 +376,7 @@ function makeRow() {
   row3El.appendChild(shopesCellC);//append cell to the row
 
   var dailyLocationTotalCellC = document.createElement('td');  //make a cell
-  dailyLocationTotalCellC.textContent = allStores[3].totalBeansPerDay;//give content to cell
+  dailyLocationTotalCellC.textContent = round((allStores[3].totalBeansPerDay),1);//give content to cell
   row3El.appendChild(dailyLocationTotalCellC);  //append cell to the row
 
   var hourlyBeanCell0C = document.createElement('td');
@@ -444,7 +450,7 @@ function makeRow() {
   row4El.appendChild(shopesCellD);//append cell to the row
 
   var dailyLocationTotalCellD = document.createElement('td');  //make a cell
-  dailyLocationTotalCellD.textContent = allStores[4].totalBeansPerDay;//give content to cell
+  dailyLocationTotalCellD.textContent = round((allStores[4].totalBeansPerDay),1);//give content to cell
   row4El.appendChild(dailyLocationTotalCellD);  //append cell to the row
 
   var hourlyBeanCell0D = document.createElement('td');
@@ -592,7 +598,7 @@ function makeRow() {
   tableEl.appendChild(row2El);
   tableEl.appendChild(row3El);
   tableEl.appendChild(row4El);
-  // tableEl.appendChild(row5El);
+  tableEl.appendChild(row5El);
 
 }
 
