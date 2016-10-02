@@ -1,10 +1,17 @@
 body {
   font-size: 10px;
   font-family: Helvetica, sans-serif;
+  background-image:url('campsite-tent-night.jpg');
+  background-size: auto;
+
+
+
 }
 
 h1{
   margin: 0;
+  text-align: center;
+  background-color: red;
 }
 
 table {
@@ -14,6 +21,8 @@ table {
 table,th, td {
   border: 1px solid black;
   padding: 0.3em;
+  background-color: green;
+  font-size: 16px;
 }
 
 thead th {
