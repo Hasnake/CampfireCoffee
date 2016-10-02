@@ -23,12 +23,16 @@ document.body.appendChild(a);
 var storeLocations = ['Pike Place Market','Capitol Hill','Seattle Public Library','South Lake Union','SeaTac Airport'];
 var storeLocationsEl = document.getElementById('storeLocations');
 var ulEl = document.createElement('ul');
+ulEl.textContent = 'Store Locations';
+document.body.appendChild(ulEl);
 for (var i = 0;i < storeLocations.length;i++){
   var liEl = document.createElement('li');
   liEl.textContent = storeLocations[i];
   ulEl.appendChild(liEl);
 }
 storeLocationsEl.appendChild(ulEl);
+document.body.appendChild(storeLocationsEl);
+
 
 
 
