@@ -1,4 +1,11 @@
 'use strict';
+var h1El = document.createElement('h1');
+h1El.textContent = 'Internal Page';
+document.body.appendChild(h1El);
+var h2El = document.createElement('h1');
+h2El.textContent = 'Beans Needed By Location Each Day';
+document.body.appendChild(h2El);
+
 var hours = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm',];
 
 var randomInteger = function(min, max) {
@@ -669,7 +676,7 @@ tableEl.appendChild(row2El);
 tableEl.appendChild(row3El);
 tableEl.appendChild(row4El);
 tableEl.appendChild(row5El);
-
+document.body.appendChild(tableEl);
 // }
 
 // function makeTable() {
