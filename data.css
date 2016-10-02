@@ -1,7 +1,11 @@
 body {
   font-size: 10px;
   font-family: Helvetica, sans-serif;
-  background-image:url('campfire.jpg');
+  background-image:url('campsite-tent-night.jpg');
+  background-size: auto;
+
+
+
 }
 
 h1{
