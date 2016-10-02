@@ -552,7 +552,7 @@ var totalindexhour1 = 0;
 for(i = 0;i < allStores.length;i ++){
   totalindexhour1 += allStores[i].beansPerHour[1];
 }
-hourlyBeanCell1E.textContent = round(totalindexhour0,1);
+hourlyBeanCell1E.textContent = round(totalindexhour1,1);
 row5El.appendChild(hourlyBeanCell1E);
 
 var hourlyBeanCell2E = document.createElement('td');
@@ -614,7 +614,7 @@ row5El.appendChild(hourlyBeanCell8E);
 var hourlyBeanCell9E = document.createElement('td');
 var totalindexhour9 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour9 += allStores[i].beansPerHour[8];
+  totalindexhour9 += allStores[i].beansPerHour[9];
 }
 hourlyBeanCell9E.textContent = round(totalindexhour9,1);
 row5El.appendChild(hourlyBeanCell9E);
@@ -622,7 +622,7 @@ row5El.appendChild(hourlyBeanCell9E);
 var hourlyBeanCell10E = document.createElement('td');
 var totalindexhour10 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour10 += allStores[i].beansPerHour[8];
+  totalindexhour10 += allStores[i].beansPerHour[10];
 }
 hourlyBeanCell10E.textContent = round(totalindexhour10,1);
 row5El.appendChild(hourlyBeanCell10E);
@@ -630,7 +630,7 @@ row5El.appendChild(hourlyBeanCell10E);
 var hourlyBeanCell11E = document.createElement('td');
 var totalindexhour11 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour11 += allStores[i].beansPerHour[8];
+  totalindexhour11 += allStores[i].beansPerHour[11];
 }
 hourlyBeanCell11E.textContent = round(totalindexhour11,1);
 row5El.appendChild(hourlyBeanCell11E);
@@ -638,7 +638,7 @@ row5El.appendChild(hourlyBeanCell11E);
 var hourlyBeanCell12E = document.createElement('td');
 var totalindexhour12 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour12 += allStores[i].beansPerHour[8];
+  totalindexhour12 += allStores[i].beansPerHour[12];
 }
 hourlyBeanCell12E.textContent = round(totalindexhour12,1);
 row5El.appendChild(hourlyBeanCell12E);
@@ -646,7 +646,7 @@ row5El.appendChild(hourlyBeanCell12E);
 var hourlyBeanCell13E = document.createElement('td');
 var totalindexhour13 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour13 += allStores[i].beansPerHour[8];
+  totalindexhour13 += allStores[i].beansPerHour[13];
 }
 hourlyBeanCell13E.textContent = round(totalindexhour13,1);
 row5El.appendChild(hourlyBeanCell13E);
@@ -654,7 +654,7 @@ row5El.appendChild(hourlyBeanCell13E);
 var hourlyBeanCell14E = document.createElement('td');
 var totalindexhour14 = 0;
 for(i = 0;i < allStores.length;i ++){
-  totalindexhour14 += allStores[i].beansPerHour[15];
+  totalindexhour14 += allStores[i].beansPerHour[14];
 }
 hourlyBeanCell14E.textContent = round(totalindexhour14,1);
 row5El.appendChild(hourlyBeanCell14E);
@@ -677,13 +677,556 @@ tableEl.appendChild(row3El);
 tableEl.appendChild(row4El);
 tableEl.appendChild(row5El);
 document.body.appendChild(tableEl);
-// }
 
-// function makeTable() {
-//   for (var index in allStores) {
-//
-//     makeRow(allStores[index]);
-//   }
-// }
-//
-// makeTable();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Making the second table.
+
+var h2BEl = document.createElement('h1');
+h2BEl.textContent = 'Baristas Needed By Location Each Day';
+document.body.appendChild(h2BEl);
+
+var table2El = document.getElementById('generated-tableB');
+var row0BEl = document.createElement('tr');
+var row1BEl = document.createElement('tr');
+var row2BEl = document.createElement('tr');
+var row3BEl = document.createElement('tr');
+var row4BEl = document.createElement('tr');
+var row5BEl = document.createElement('tr');
+
+  //REPEAT THIS PART
+    //make a cell
+var bBshopesCell = document.createElement('td');
+bBshopesCell.textContent = allStores[0].name;//give content to cell
+row0BEl.appendChild(bBshopesCell);//append cell to the row
+
+var bBdailyLocationTotalCell = document.createElement('td');  //make a cell
+bBdailyLocationTotalCell.textContent = allStores[0].employeesPerDay;//give content to cell
+row0BEl.appendChild(bBdailyLocationTotalCell);  //append cell to the row
+
+var BhourlyBeanCell0 = document.createElement('td');
+BhourlyBeanCell0.textContent = allStores[0].employeesPerHour[0];
+row0BEl.appendChild(BhourlyBeanCell0);
+
+var BhourlyBeanCell1 = document.createElement('td');
+BhourlyBeanCell1.textContent = allStores[0].employeesPerHour[1];
+row0BEl.appendChild(BhourlyBeanCell1);
+
+var BhourlyBeanCell2 = document.createElement('td');
+BhourlyBeanCell2.textContent = allStores[0].employeesPerHour[2];
+row0BEl.appendChild(BhourlyBeanCell2);
+
+var BhourlyBeanCell3 = document.createElement('td');
+BhourlyBeanCell3.textContent = allStores[0].employeesPerHour[3];
+row0BEl.appendChild(BhourlyBeanCell3);
+
+var BhourlyBeanCell4 = document.createElement('td');
+BhourlyBeanCell4.textContent = allStores[0].employeesPerHour[4];
+row0BEl.appendChild(BhourlyBeanCell4);
+
+var BhourlyBeanCell5 = document.createElement('td');
+BhourlyBeanCell5.textContent = allStores[0].employeesPerHour[5];
+row0BEl.appendChild(BhourlyBeanCell5);
+
+var BhourlyBeanCell6 = document.createElement('td');
+BhourlyBeanCell6.textContent = allStores[0].employeesPerHour[6];
+row0BEl.appendChild(BhourlyBeanCell6);
+
+var BhourlyBeanCell7 = document.createElement('td');
+BhourlyBeanCell7.textContent = allStores[0].employeesPerHour[7];
+row0BEl.appendChild(BhourlyBeanCell7);
+
+var BhourlyBeanCell8 = document.createElement('td');
+BhourlyBeanCell8.textContent = allStores[0].employeesPerHour[8];
+row0BEl.appendChild(BhourlyBeanCell8);
+
+var BhourlyBeanCell9 = document.createElement('td');
+BhourlyBeanCell9.textContent = allStores[0].employeesPerHour[9];
+row0BEl.appendChild(BhourlyBeanCell9);
+
+var BhourlyBeanCell10 = document.createElement('td');
+BhourlyBeanCell10.textContent = allStores[0].employeesPerHour[10];
+row0BEl.appendChild(BhourlyBeanCell10);
+
+var BhourlyBeanCell11 = document.createElement('td');
+BhourlyBeanCell11.textContent = allStores[0].employeesPerHour[11];
+row0BEl.appendChild(BhourlyBeanCell11);
+
+var BhourlyBeanCell12 = document.createElement('td');
+BhourlyBeanCell12.textContent = allStores[0].employeesPerHour[12];
+row0BEl.appendChild(BhourlyBeanCell12);
+
+var BhourlyBeanCell13 = document.createElement('td');
+BhourlyBeanCell13.textContent = allStores[0].employeesPerHour[13];
+row0BEl.appendChild(BhourlyBeanCell13);
+
+var BhourlyBeanCell14 = document.createElement('td');
+BhourlyBeanCell14.textContent = allStores[0].employeesPerHour[14];
+row0BEl.appendChild(BhourlyBeanCell14);
+
+var BhourlyBeanCell15 = document.createElement('td');
+BhourlyBeanCell15.textContent = allStores[0].employeesPerHour[15];
+row0BEl.appendChild(BhourlyBeanCell15);
+
+//making the second row
+var bBshopesCell1 = document.createElement('td');
+bBshopesCell1.textContent = allStores[1].name;//give content to cell
+row1BEl.appendChild(bBshopesCell1);//append cell to the row
+
+var bBdailyLocationTotalCell1 = document.createElement('td');  //make a cell
+bBdailyLocationTotalCell1.textContent = round((allStores[1].employeesPerDay),1);//give content to cell
+row1BEl.appendChild(bBdailyLocationTotalCell1);  //append cell to the row
+
+var bBhourlyBeanCell0A = document.createElement('td');
+bBhourlyBeanCell0A.textContent = allStores[1].employeesPerHour[0];
+row1BEl.appendChild(bBhourlyBeanCell0A);
+
+var bBhourlyBeanCell1A = document.createElement('td');
+bBhourlyBeanCell1A.textContent = allStores[1].employeesPerHour[1];
+row1BEl.appendChild(bBhourlyBeanCell1A);
+
+var bBhourlyBeanCell2A = document.createElement('td');
+bBhourlyBeanCell2A.textContent = allStores[1].employeesPerHour[2];
+row1BEl.appendChild(bBhourlyBeanCell2A);
+
+var bBhourlyBeanCell3A = document.createElement('td');
+bBhourlyBeanCell3A.textContent = allStores[1].employeesPerHour[3];
+row1BEl.appendChild(bBhourlyBeanCell3A);
+
+var bBhourlyBeanCell4A = document.createElement('td');
+bBhourlyBeanCell4A.textContent = allStores[1].employeesPerHour[4];
+row1BEl.appendChild(bBhourlyBeanCell4A);
+
+var bBhourlyBeanCell5A = document.createElement('td');
+bBhourlyBeanCell5A.textContent = allStores[1].employeesPerHour[5];
+row1BEl.appendChild(bBhourlyBeanCell5A);
+
+var bBhourlyBeanCell6A = document.createElement('td');
+bBhourlyBeanCell6A.textContent = allStores[1].employeesPerHour[6];
+row1BEl.appendChild(bBhourlyBeanCell6A);
+
+var bBhourlyBeanCell7A = document.createElement('td');
+bBhourlyBeanCell7A.textContent = allStores[1].employeesPerHour[7];
+row1BEl.appendChild(bBhourlyBeanCell7A);
+
+var bBhourlyBeanCell8A = document.createElement('td');
+bBhourlyBeanCell8A.textContent = allStores[1].employeesPerHour[8];
+row1BEl.appendChild(bBhourlyBeanCell8A);
+
+var bBhourlyBeanCell9A = document.createElement('td');
+bBhourlyBeanCell9A.textContent = allStores[1].employeesPerHour[9];
+row1BEl.appendChild(bBhourlyBeanCell9A);
+
+var bBhourlyBeanCell10A = document.createElement('td');
+bBhourlyBeanCell10A.textContent = allStores[1].employeesPerHour[10];
+row1BEl.appendChild(bBhourlyBeanCell10A);
+
+var bBhourlyBeanCell11A = document.createElement('td');
+bBhourlyBeanCell11A.textContent = allStores[1].employeesPerHour[11];
+row1BEl.appendChild(bBhourlyBeanCell11A);
+
+var bBhourlyBeanCell12A = document.createElement('td');
+bBhourlyBeanCell12A.textContent = allStores[1].employeesPerHour[12];
+row1BEl.appendChild(bBhourlyBeanCell12A);
+
+var bBhourlyBeanCell13A = document.createElement('td');
+bBhourlyBeanCell13A.textContent = allStores[1].employeesPerHour[13];
+row1BEl.appendChild(bBhourlyBeanCell13A);
+
+var bBhourlyBeanCell14A = document.createElement('td');
+bBhourlyBeanCell14A.textContent = allStores[1].employeesPerHour[14];
+row1BEl.appendChild(bBhourlyBeanCell14A);
+
+var bBhourlyBeanCell15A = document.createElement('td');
+bBhourlyBeanCell15A.textContent = allStores[1].employeesPerHour[15];
+row1BEl.appendChild(bBhourlyBeanCell15A);
+
+//making the third row
+var bBshopesCellB = document.createElement('td');
+bBshopesCellB.textContent = allStores[2].name;//give content to cell
+row2BEl.appendChild(bBshopesCellB);//append cell to the row
+
+var bBdailyLocationTotalCellB = document.createElement('td');  //make a cell
+bBdailyLocationTotalCellB.textContent = round((allStores[2].employeesPerDay),1);//give content to cell
+row2BEl.appendChild(bBdailyLocationTotalCellB);  //append cell to the row
+
+var bBhourlyBeanCell0B = document.createElement('td');
+bBhourlyBeanCell0B.textContent = allStores[2].employeesPerHour[0];
+row2BEl.appendChild(bBhourlyBeanCell0B);
+
+var bBhourlyBeanCell1B = document.createElement('td');
+bBhourlyBeanCell1B.textContent = allStores[2].employeesPerHour[1];
+row2BEl.appendChild(bBhourlyBeanCell1B);
+
+var bBhourlyBeanCell2B = document.createElement('td');
+bBhourlyBeanCell2B.textContent = allStores[2].employeesPerHour[2];
+row2BEl.appendChild(bBhourlyBeanCell2B);
+
+var bBhourlyBeanCell3B = document.createElement('td');
+bBhourlyBeanCell3B.textContent = allStores[2].employeesPerHour[3];
+row2BEl.appendChild(bBhourlyBeanCell3B);
+
+var bBhourlyBeanCell4B = document.createElement('td');
+bBhourlyBeanCell4B.textContent = allStores[2].employeesPerHour[4];
+row2BEl.appendChild(bBhourlyBeanCell4B);
+
+var bBhourlyBeanCell5B = document.createElement('td');
+bBhourlyBeanCell5B.textContent = allStores[2].employeesPerHour[5];
+row2BEl.appendChild(bBhourlyBeanCell5B);
+
+var bBhourlyBeanCell6B = document.createElement('td');
+bBhourlyBeanCell6B.textContent = allStores[2].employeesPerHour[6];
+row2BEl.appendChild(bBhourlyBeanCell6B);
+
+var bBhourlyBeanCell7B = document.createElement('td');
+bBhourlyBeanCell7B.textContent = allStores[2].employeesPerHour[7];
+row2BEl.appendChild(bBhourlyBeanCell7B);
+
+var bBhourlyBeanCell8B = document.createElement('td');
+bBhourlyBeanCell8B.textContent = allStores[2].employeesPerHour[8];
+row2BEl.appendChild(bBhourlyBeanCell8B);
+
+var bBhourlyBeanCell9B = document.createElement('td');
+bBhourlyBeanCell9B.textContent = allStores[2].employeesPerHour[9];
+row2BEl.appendChild(bBhourlyBeanCell9B);
+
+var bBhourlyBeanCell10B = document.createElement('td');
+bBhourlyBeanCell10B.textContent = allStores[2].employeesPerHour[10];
+row2BEl.appendChild(bBhourlyBeanCell10B);
+
+var bBhourlyBeanCell11B = document.createElement('td');
+bBhourlyBeanCell11B.textContent = allStores[2].employeesPerHour[11];
+row2BEl.appendChild(bBhourlyBeanCell11B);
+
+var bBhourlyBeanCell12B = document.createElement('td');
+bBhourlyBeanCell12B.textContent = allStores[2].employeesPerHour[12];
+row2BEl.appendChild(bBhourlyBeanCell12B);
+
+var bBhourlyBeanCell13B = document.createElement('td');
+bBhourlyBeanCell13B.textContent = allStores[2].employeesPerHour[13];
+row2BEl.appendChild(bBhourlyBeanCell13B);
+
+var bBhourlyBeanCell14B = document.createElement('td');
+bBhourlyBeanCell14B.textContent = allStores[2].employeesPerHour[14];
+row2BEl.appendChild(bBhourlyBeanCell14B);
+
+var bBhourlyBeanCell15B = document.createElement('td');
+bBhourlyBeanCell15B.textContent = allStores[2].employeesPerHour[15];
+row2BEl.appendChild(bBhourlyBeanCell15B);
+
+//making the fourth row
+var bBshopesCellC = document.createElement('td');
+bBshopesCellC.textContent = allStores[3].name;//give content to cell
+row3BEl.appendChild(bBshopesCellC);//append cell to the row
+
+var bBdailyLocationTotalCellC = document.createElement('td');  //make a cell
+bBdailyLocationTotalCellC.textContent = round((allStores[3].employeesPerDay),1);//give content to cell
+row3BEl.appendChild(bBdailyLocationTotalCellC);  //append cell to the row
+
+var bBhourlyBeanCell0C = document.createElement('td');
+bBhourlyBeanCell0C.textContent = allStores[3].employeesPerHour[0];
+row3BEl.appendChild(bBhourlyBeanCell0C);
+
+var bBhourlyBeanCell1C = document.createElement('td');
+bBhourlyBeanCell1C.textContent = allStores[3].employeesPerHour[1];
+row3BEl.appendChild(bBhourlyBeanCell1C);
+
+var bBhourlyBeanCell2C = document.createElement('td');
+bBhourlyBeanCell2C.textContent = allStores[3].employeesPerHour[2];
+row3BEl.appendChild(bBhourlyBeanCell2C);
+
+var bBhourlyBeanCell3C = document.createElement('td');
+bBhourlyBeanCell3C.textContent = allStores[3].employeesPerHour[3];
+row3BEl.appendChild(bBhourlyBeanCell3C);
+
+var bBhourlyBeanCell4C = document.createElement('td');
+bBhourlyBeanCell4C.textContent = allStores[3].employeesPerHour[4];
+row3BEl.appendChild(bBhourlyBeanCell4C);
+
+var bBhourlyBeanCell5C = document.createElement('td');
+bBhourlyBeanCell5C.textContent = allStores[3].employeesPerHour[5];
+row3BEl.appendChild(bBhourlyBeanCell5C);
+
+var bBhourlyBeanCell6C = document.createElement('td');
+bBhourlyBeanCell6C.textContent = allStores[3].employeesPerHour[6];
+row3BEl.appendChild(bBhourlyBeanCell6C);
+
+var bBhourlyBeanCell7C = document.createElement('td');
+bBhourlyBeanCell7C.textContent = allStores[3].employeesPerHour[7];
+row3BEl.appendChild(bBhourlyBeanCell7C);
+
+var bBhourlyBeanCell8C = document.createElement('td');
+bBhourlyBeanCell8C.textContent = allStores[3].employeesPerHour[8];
+row3BEl.appendChild(bBhourlyBeanCell8C);
+
+var bBhourlyBeanCell9C = document.createElement('td');
+bBhourlyBeanCell9C.textContent = allStores[3].employeesPerHour[9];
+row3BEl.appendChild(bBhourlyBeanCell9C);
+
+var bBhourlyBeanCell10C = document.createElement('td');
+bBhourlyBeanCell10C.textContent = allStores[3].employeesPerHour[10];
+row3BEl.appendChild(bBhourlyBeanCell10C);
+
+var bBhourlyBeanCell11C = document.createElement('td');
+bBhourlyBeanCell11C.textContent = allStores[3].employeesPerHour[11];
+row3BEl.appendChild(bBhourlyBeanCell11C);
+
+var bBhourlyBeanCell12C = document.createElement('td');
+bBhourlyBeanCell12C.textContent = allStores[3].employeesPerHour[12];
+row3BEl.appendChild(bBhourlyBeanCell12C);
+
+var bBhourlyBeanCell13C = document.createElement('td');
+bBhourlyBeanCell13C.textContent = allStores[3].employeesPerHour[13];
+row3BEl.appendChild(bBhourlyBeanCell13C);
+
+var bBhourlyBeanCell14C = document.createElement('td');
+bBhourlyBeanCell14C.textContent = allStores[3].employeesPerHour[14];
+row3BEl.appendChild(bBhourlyBeanCell14C);
+
+var bBhourlyBeanCell15C = document.createElement('td');
+bBhourlyBeanCell15C.textContent = allStores[3].employeesPerHour[15];
+row3BEl.appendChild(bBhourlyBeanCell15C);
+
+
+//making the fourth row
+var bBshopesCellD = document.createElement('td');
+bBshopesCellD.textContent = allStores[4].name;//give content to cell
+row4BEl.appendChild(bBshopesCellD);//append cell to the row
+
+var bBdailyLocationTotalCellD = document.createElement('td');  //make a cell
+bBdailyLocationTotalCellD.textContent = round((allStores[4].employeesPerDay),1);//give content to cell
+row4BEl.appendChild(bBdailyLocationTotalCellD);  //append cell to the row
+
+var bBhourlyBeanCell0D = document.createElement('td');
+bBhourlyBeanCell0D.textContent = allStores[4].employeesPerHour[0];
+row4BEl.appendChild(bBhourlyBeanCell0D);
+
+var bBhourlyBeanCell1D = document.createElement('td');
+bBhourlyBeanCell1D.textContent = allStores[4].employeesPerHour[1];
+row4BEl.appendChild(bBhourlyBeanCell1D);
+
+var bBhourlyBeanCell2D = document.createElement('td');
+bBhourlyBeanCell2D.textContent = allStores[4].employeesPerHour[2];
+row4BEl.appendChild(bBhourlyBeanCell2D);
+
+var bBhourlyBeanCell3D = document.createElement('td');
+bBhourlyBeanCell3D.textContent = allStores[4].employeesPerHour[3];
+row4BEl.appendChild(bBhourlyBeanCell3D);
+
+var bBhourlyBeanCell4D = document.createElement('td');
+bBhourlyBeanCell4D.textContent = allStores[4].employeesPerHour[4];
+row4BEl.appendChild(bBhourlyBeanCell4D);
+
+var bBhourlyBeanCell5D = document.createElement('td');
+bBhourlyBeanCell5D.textContent = allStores[4].employeesPerHour[5];
+row4BEl.appendChild(bBhourlyBeanCell5D);
+
+var bBhourlyBeanCell6D = document.createElement('td');
+bBhourlyBeanCell6D.textContent = allStores[4].employeesPerHour[6];
+row4BEl.appendChild(bBhourlyBeanCell6D);
+
+var bBhourlyBeanCell7D = document.createElement('td');
+bBhourlyBeanCell7D.textContent = allStores[4].employeesPerHour[7];
+row4BEl.appendChild(bBhourlyBeanCell7D);
+
+var bBhourlyBeanCell8D = document.createElement('td');
+bBhourlyBeanCell8D.textContent = allStores[4].employeesPerHour[8];
+row4BEl.appendChild(bBhourlyBeanCell8D);
+
+var bBhourlyBeanCell9D = document.createElement('td');
+bBhourlyBeanCell9D.textContent = allStores[4].employeesPerHour[9];
+row4BEl.appendChild(bBhourlyBeanCell9D);
+
+var bBhourlyBeanCell10D = document.createElement('td');
+bBhourlyBeanCell10D.textContent = allStores[4].employeesPerHour[10];
+row4BEl.appendChild(bBhourlyBeanCell10D);
+
+var bBhourlyBeanCell11D = document.createElement('td');
+bBhourlyBeanCell11D.textContent = allStores[4].employeesPerHour[11];
+row4BEl.appendChild(bBhourlyBeanCell11D);
+
+var bBhourlyBeanCell12D = document.createElement('td');
+bBhourlyBeanCell12D.textContent = allStores[4].employeesPerHour[12];
+row4BEl.appendChild(bBhourlyBeanCell12D);
+
+var bBhourlyBeanCell13D = document.createElement('td');
+bBhourlyBeanCell13D.textContent = allStores[4].employeesPerHour[13];
+row4BEl.appendChild(bBhourlyBeanCell13D);
+
+var bBhourlyBeanCell14D = document.createElement('td');
+bBhourlyBeanCell14D.textContent = allStores[4].employeesPerHour[14];
+row4BEl.appendChild(bBhourlyBeanCell14D);
+
+var bBhourlyBeanCell15D = document.createElement('td');
+bBhourlyBeanCell15D.textContent = allStores[4].employeesPerHour[15];
+row4BEl.appendChild(bBhourlyBeanCell15D);
+
+
+  // making the fifth row
+var bBshopesCellE = document.createElement('td');
+bBshopesCellE.textContent = 'Totals';//give content to cell
+row5BEl.appendChild(bBshopesCellE);//append cell to the row
+
+var bBdailyLocationTotalCellE = document.createElement('td');  //make a cell
+var totalb = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalb += allStores[i].employeesPerDay;
+}
+bBdailyLocationTotalCellE.textContent = round(totalb,1);//give content to cell
+row5BEl.appendChild(bBdailyLocationTotalCellE);  //append cell to the row
+
+var bBhourlyBeanCell0E = document.createElement('td');
+var totalbindexhour0 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour0 += allStores[i].employeesPerHour[0];
+}
+bBhourlyBeanCell0E.textContent = round(totalbindexhour0,1);
+row5BEl.appendChild(bBhourlyBeanCell0E);
+  //
+var bBhourlyBeanCell1E = document.createElement('td');
+var totalBindexhour1 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalBindexhour1 += allStores[i].employeesPerHour[1];
+}
+bBhourlyBeanCell1E.textContent = round(totalBindexhour1,1);
+row5BEl.appendChild(bBhourlyBeanCell1E);
+
+var bBhourlyBeanCell2E = document.createElement('td');
+var totalbindexhour2 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour2 += allStores[i].employeesPerHour[2];
+}
+bBhourlyBeanCell2E.textContent = round(totalbindexhour2,1);
+row5BEl.appendChild(bBhourlyBeanCell2E);
+  //
+var bBhourlyBeanCell3E = document.createElement('td');
+var totalbindexhour3 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour3 += allStores[i].employeesPerHour[3];
+}
+bBhourlyBeanCell3E.textContent = round(totalbindexhour3,1);
+row5BEl.appendChild(bBhourlyBeanCell3E);
+  //
+var bBhourlyBeanCell4E = document.createElement('td');
+var totalbindexhour4 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour4 += allStores[i].employeesPerHour[4];
+}
+bBhourlyBeanCell4E.textContent = round(totalbindexhour4,1);
+row5BEl.appendChild(bBhourlyBeanCell4E);
+  //
+var bBhourlyBeanCell5E = document.createElement('td');
+var totalbindexhour5 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour5 += allStores[i].employeesPerHour[5];
+}
+bBhourlyBeanCell5E.textContent = round(totalbindexhour5,1);
+row5BEl.appendChild(bBhourlyBeanCell5E);
+
+var bBhourlyBeanCell6E = document.createElement('td');
+var totalbindexhour6 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour6 += allStores[i].employeesPerHour[6];
+}
+bBhourlyBeanCell6E.textContent = round(totalbindexhour6,1);
+row5BEl.appendChild(bBhourlyBeanCell6E);
+
+var bBhourlyBeanCell7E = document.createElement('td');
+var totalbindexhour7 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour7 += allStores[i].employeesPerHour[7];
+}
+bBhourlyBeanCell7E.textContent = round(totalbindexhour7,1);
+row5BEl.appendChild(bBhourlyBeanCell7E);
+
+var bBhourlyBeanCell8E = document.createElement('td');
+var totalbindexhour8 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour8 += allStores[i].employeesPerHour[8];
+}
+bBhourlyBeanCell8E.textContent = round(totalbindexhour8,1);
+row5BEl.appendChild(bBhourlyBeanCell8E);
+
+var bBhourlyBeanCell9E = document.createElement('td');
+var totaldindexhour9 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totaldindexhour9 += allStores[i].employeesPerHour[9];
+}
+bBhourlyBeanCell9E.textContent = round(totaldindexhour9,1);
+row5BEl.appendChild(bBhourlyBeanCell9E);
+
+var bBhourlyBeanCell10E = document.createElement('td');
+var totalbindexhour10 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour10 += allStores[i].employeesPerHour[10];
+}
+bBhourlyBeanCell10E.textContent = round(totalbindexhour10,1);
+row5BEl.appendChild(bBhourlyBeanCell10E);
+
+var bBhourlyBeanCell11E = document.createElement('td');
+var totalbindexhour11 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour11 += allStores[i].employeesPerHour[11];
+}
+bBhourlyBeanCell11E.textContent = round(totalbindexhour11,1);
+row5BEl.appendChild(bBhourlyBeanCell11E);
+
+var bBhourlyBeanCell12E = document.createElement('td');
+var totalbindexhour12 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour12 += allStores[i].employeesPerHour[12];
+}
+bBhourlyBeanCell12E.textContent = round(totalbindexhour12,1);
+row5BEl.appendChild(bBhourlyBeanCell12E);
+
+var bBhourlyBeanCell13E = document.createElement('td');
+var totalbindexhour13 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalbindexhour13 += allStores[i].employeesPerHour[13];
+}
+bBhourlyBeanCell13E.textContent = round(totalbindexhour13,1);
+row5BEl.appendChild(bBhourlyBeanCell13E);
+
+var bBhourlyBeanCell14E = document.createElement('td');
+var totalBindexhour14 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalBindexhour14 += allStores[i].employeesPerHour[14];
+}
+bBhourlyBeanCell14E.textContent = round(totalBindexhour14,1);
+row5BEl.appendChild(bBhourlyBeanCell14E);
+
+var bBhourlyBeanCell15E = document.createElement('td');
+var totalBindexhour15 = 0;
+for(i = 0;i < allStores.length;i ++){
+  totalBindexhour15 += allStores[i].employeesPerHour[15];
+}
+bBhourlyBeanCell15E.textContent = round(totalBindexhour15,1);
+row5BEl.appendChild(bBhourlyBeanCell15E);
+
+
+
+//Table can be automated here.
+table2El.appendChild(row0BEl);
+table2El.appendChild(row1BEl);
+table2El.appendChild(row2BEl);
+table2El.appendChild(row3BEl);
+table2El.appendChild(row4BEl);
+table2El.appendChild(row5BEl);
+document.body.appendChild(table2El);
