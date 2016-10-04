@@ -1,10 +1,22 @@
 'use strict';
 
-function round(num, prec) {
-  return parseFloat(num.toFixed(prec));
-}
-
 var allItems = [];
+var grandTotals = {
+  price: 0,
+  tax: 0,
+  total: 0
+};
+
+var form = document.getElementById('form');
+var button = document.getElementById('fun-button');
+
+var table = document.getElementById('table');
+var tbody = document.getElementById('table-body');
+var tfoot = document.getElementsByTagName('tfoot')[0];
+
+new Item('socks', 8.99);
+new Item('shoes', 49.99);
+new Item('pantaloons', 89.99);
 
 function Item(name, price) {
   this.name = name;
@@ -14,67 +26,110 @@ function Item(name, price) {
   allItems.push(this);
 }
 
-Item.prototype.calcTax = function (price) {
-  this.tax = round((price * 0.095), 2);
+Item.prototype.calcTax = function() {
+  this.tax = parseFloat((this.price * 0.095).toFixed(2));
 };
 
-Item.prototype.calcTotal = function() {
-  this.total = round((this.price + this.tax), 2);
+Item.prototype.calcTotal = function () {
+  return this.total = parseFloat((this.price + this.tax).toFixed(2));
 };
 
-Item.prototype.doAllTheMethods = function () {
-  this.calcTax(this.price);
+Item.prototype.updateGrandTotals = function () {
+  grandTotals.price += this.price;
+  grandTotals.tax += this.tax;
+  grandTotals.total += this.total;
+};
+
+Item.prototype.doAllTheMethods = function() {
+  this.calcTax();
   this.calcTotal();
+  this.updateGrandTotals();
 };
 
-new Item('socks', 8.99);
-new Item('shoes', 49.99);
-new Item('pantaloons', 89.99);
-
-function makeAllTheThings() {
-  for (var i = 0; i < allItems.length; i++) {
-    allItems[i].doAllTheMethods();
+//compute tax & total for all objects
+function updateObjects() {
+  for (var elem in allItems) {
+    elem.doAllTheMethods();
   }
 }
 
-makeAllTheThings();
+function makeItemRow(obj) {
+  var row = document.createElement('tr');
 
-//get reference to table element
-var tableEl = document.getElementById('generated-table');
-
-function makeRow(obj) {
-  //make a row
-  var rowEl = document.createElement('tr');
-
-  //REPEAT THIS PART
-    //make a cell
   var nameCell = document.createElement('td');
-    //give content to cell
   nameCell.textContent = obj.name;
-    //append cell to the row
-  rowEl.appendChild(nameCell);
+  row.appendChild(nameCell);
 
   var priceCell = document.createElement('td');
   priceCell.textContent = obj.price;
-  rowEl.appendChild(priceCell);
+  row.appendChild(priceCell);
 
-  var taxEl = document.createElement('td');
-  taxEl.textContent = obj.tax;
-  rowEl.appendChild(taxEl);
+  var taxCell = document.createElement('td');
+  taxCell.textContent = obj.tax;
+  row.appendChild(taxCell);
 
-  var totalEl = document.createElement('td');
-  totalEl.textContent = obj.total;
-  rowEl.appendChild(totalEl);
+  var totalCell = document.createElement('td');
+  totalCell.textContent = obj.total;
+  row.appendChild(totalCell);
 
-  //append row to the table
-  tableEl.appendChild(rowEl);
+  tbody.appendChild(row);
 }
 
-function makeTable() {
-  for (var index in allItems) {
-
-    makeRow(allItems[index]);
+function makeAllItemRows() {
+  for (var item in allItems) {
+    makeItemRow(item);
   }
 }
 
-makeTable();
+function makeTotalRow() {
+  var row = document.createElement('tr');
+
+  var totalCell = document.createElement('th');
+  totalCell.textContent = 'Total';
+  row.appendChild(totalCell);
+
+  var priceCell = document.createElement('th');
+  priceCell.textContent = grandTotals.price;
+  row.appendChild(priceCell);
+
+  var taxCell = document.createElement('th');
+  taxCell.textContent = grandTotals.tax;
+  row.appendChild(taxCell);
+
+  var totalCell = document.createElement('th');
+  totalCell.textContent = grandTotals.total;
+  row.appendChild(totalCell);
+
+  tfoot.appendChild(row);
+}
+
+function handleButtonClick(event) {
+  alert('the button has been clicked. now we are having fun');
+  console.log(event.target);
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  console.log(event);
+
+  var name = event.target.name.value;
+  var price = parseFloat(event.target.price.value);
+
+  var newItem = new Item(name, price);
+  newItem.doAllTheMethods();
+
+  makeItemRow(newItem);
+  tfoot.innerHTML = ''
+  makeTotalRow();
+
+  event.target.name.value = null;
+  event.target.price.value = null;
+}
+
+
+button.addEventListener('click', handleButtonClick);
+form.addEventListener('submit', handleFormSubmit);
+
+updateObjects();
+makeAllItemRows();
+makeTotalRow();
