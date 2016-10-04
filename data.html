@@ -9,21 +9,33 @@
     <main>
       <form id="form">
         <fieldset>
-          <legend>this is where you put things in the form</legend>
+          <legend>Fill out the following input fields to add another store</legend>
 
-          <!--make a block-level input  -->
-          <!-- <div> -->
-            <label for="name">Item name:</label>
+
+          <div>
+            <label for="name">Store name:</label>
             <input type="text" name="name" required>
-          <!-- </div> -->
+          </div>
+
 
           <!--everything else in the form will be inline  -->
-          <label for="price">Price:</label>
-          <input type="number" name="price" min="0" required>
+          <label for="minCustPerHour">Min:</label>
+          <input type="number" name="Min" min="0" required>
+          <label for="maxCustPerHour">Max:</label>
+          <input type="number" name="Max" min="0" required>
+
+          <!--In the case of  integers and decimals,the input numbers to be valid, it is a must to set the  step property to “any"-->
+          <label for="avgCupsperCust">avgCupsperCust:</label>
+          <input type="number" name="avgCupsperCust" min="0.1" step="any" required>
+          <label for="avgCupsperCust">avgTogoperCust:</label>
+          <input type="number" name="avgTogoperCust" min="0.01" step="any" required>
+
 
           <input type="submit" value="Add the Store">
         </fieldset>
       </form>
+
+
       <table id="PoundsOfBeans">
         <thead>
  <h1>Beans Needed By Location Each Day</h1>

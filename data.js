@@ -156,11 +156,14 @@ Store.prototype.callAllMethods = function() {
   this.howManyEmployeesPerDay();
 };
 
+
 new Store('Pike Place Market', 14, 35, 1.2, 0.34);
 new Store('Capitol Hill', 12, 28, 3.2, 0.03);
 new Store('Seattle Public Library', 9, 45, 2.6, 0.02);
 new Store('South Lake Union', 5, 18, 1.3, 0.04);
 new Store('Sea-Tac Airport', 28, 44, 1.1, 0.41);
+
+
 
 function makeItAllHappen() {
   for (var i = 0; i < allStores.length; i++) {
@@ -246,6 +249,8 @@ coffeeShopeCalcs();
 //Rendering a table is building the HTML page in javascript and then inserted it into the DOM.
 // Document object Model specifies the browser should create a model of an HTML page and how javascript can access
 // and update the contents of a web page while it is in the browser window.
+var form = document.getElementById('form');
+var button = document.getElementById('fun-button');
 
 function populatingTheTable(idName) {
   return document.getElementById(idName);
@@ -302,3 +307,57 @@ function makeTheEmployeeRows() {
 makeTheEmployeeRows();
 
 makeTheFirstRow('employees', 'Totals', allCoffeeShopes[0].totalDailyEmployees, allCoffeeShopes[0].totalHourlyEmployees);
+
+//Adding the submit add Event listner
+
+function handleButtonClick(event) {
+  alert('the button has been clicked. now we are having fun');
+  console.log(event.target);
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  var name = event.target.name.value;
+  var Min = parseFloat(event.target.minCustPerHour.value);
+  var Max = parseFloat(event.target.maxCustPerHour.value);
+  var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
+  var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
+  var newStore = new Store(name, Min, Max, avgCupsperCust, avgTogoperCust);
+  newStore.callAllMethods();
+
+
+}
+
+button.addEventListener('click', handleButtonClick);
+form.addEventListener('submit', handleFormSubmit);
+
+// var form = document.getElementById('form');
+// var button = document.getElementById('fun-button');
+// function handleButtonClick(event) {
+//   alert('the button has been clicked. now we are having fun');
+//   console.log(event.target);
+// }
+//
+// function handleFormSubmit(event) {
+//   event.preventDefault();
+//   console.log(event);
+//
+//
+//   var name = event.target.name.value;
+//   var Min = parseFloat(event.target.minCustPerHour.value);
+//   var Max = parseFloat(event.target.maxCustPerHour.value);
+//   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
+//   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
+//   new Store(name, min, max, avgCupsperCust, avgTogoperCust);
+//   var newStore = new Store(name, min, max, avgCupsperCust, avgTogoperCust);
+//   newStore.callAllMethods();
+
+//   event.target.name.value = null;
+//   event.target.minCustPerHour.value = null;
+//   event.target.maxCustPerHour.value = null;
+//   event.target.avgCupsperCust.value = null;
+//   event.target.avgTogoperCust.value = null;
+// }
+//
+// button.addEventListener('click', handleButtonClick);
+// form.addEventListener('submit', handleFormSubmit);
