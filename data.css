@@ -32,3 +32,8 @@ thead th {
 tfoot th {
   border-top: 2px solid black;
 }
+fieldset{
+  color:#ff0066;
+  font-size: 14px;
+
+}

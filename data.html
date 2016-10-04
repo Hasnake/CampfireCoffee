@@ -7,6 +7,35 @@
   </head>
   <body>
     <main>
+      <form id="form">
+        <fieldset>
+          <legend>Fill out the following input fields to add another store</legend>
+
+
+          <div>
+            <label for="name">Store name:</label>
+            <input type="text" name="name" required>
+          </div>
+
+
+          <!--everything else in the form will be inline  -->
+          <label for="minCustPerHour">Min:</label>
+          <input type="number" name="Min" min="0" required>
+          <label for="maxCustPerHour">Max:</label>
+          <input type="number" name="Max" min="0" required>
+
+          <!--In the case of  integers and decimals,the input numbers to be valid, it is a must to set the  step property to “any"-->
+          <label for="avgCupsperCust">avgCupsperCust:</label>
+          <input type="number" name="avgCupsperCust" min="0.1" step="any" required>
+          <label for="avgCupsperCust">avgTogoperCust:</label>
+          <input type="number" name="avgTogoperCust" min="0.01" step="any" required>
+
+
+          <input type="submit" value="Add the Store">
+        </fieldset>
+      </form>
+
+
       <table id="PoundsOfBeans">
         <thead>
  <h1>Beans Needed By Location Each Day</h1>
@@ -39,53 +68,3 @@
 <script src="data.js" charset="utf-8"></script>
   </body>
 </html>
-
-
-
-
-<!-- <table id="generated-table">
-  <tr>
-    <th></th>
-    <th>Daily Location Total</th>
-    <th>6:00am</th>
-    <th>7:00am</th>
-    <th>8:00am</th>
-    <th>9:00am</th>
-    <th>10:00am</th>
-    <th>11:00am</th>
-    <th>12:00pm</th>
-    <th>1:00pm</th>
-    <th>2:00pm</th>
-    <th>3:00pm</th>
-    <th>4:00pm</th>
-    <th>5:00pm</th>
-    <th>6:00pm</th>
-    <th>7:00pm</th>
-    <th>8:00pm</th>
-    <th>9:00pm</th>
-  </tr>
-
-</table>
-<table id="generated-tableB">
-  <tr>
-    <th></th>
-    <th>Total</th>
-    <th>6:00am</th>
-    <th>7:00am</th>
-    <th>8:00am</th>
-    <th>9:00am</th>
-    <th>10:00am</th>
-    <th>11:00am</th>
-    <th>12:00pm</th>
-    <th>1:00pm</th>
-    <th>2:00pm</th>
-    <th>3:00pm</th>
-    <th>4:00pm</th>
-    <th>5:00pm</th>
-    <th>6:00pm</th>
-    <th>7:00pm</th>
-    <th>8:00pm</th>
-    <th>9:00pm</th>
-  </tr>
-
-</table> -->
