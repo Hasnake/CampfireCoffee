@@ -10,18 +10,14 @@
       <form id="form">
         <fieldset>
           <legend>Fill out the following input fields to add another store</legend>
-
           <div>
             <label for="name">Store name:</label>
             <input type="text" id="name" name="name" placeholder="Store Name" required>
           </div>
-
-          <!--everything else in the form will be inline  -->
           <div><label for="minCustPerHour">Min:</label>
-          <input type="number" name="Min" min="0" id="Min" placeholder="Minimum Cust Per Hour" required></div>
+          <input type="number" name="Min" min="0" placeholder="Minimum Cust Per Hour" required></div>
           <div><label for="maxCustPerHour">Max:</label>
           <input type="number" name="Max" min="0" placeholder="Maximum Cust Per Hour" required></div>
-
           <!--In the case of  integers and decimals,the input numbers to be valid, it is a must to set the  step property to “any"-->
           <div><label for="avgCupsperCust">avgCupsperCust:</label>
           <input type="number" name="avgCupsperCust" min="0.1" step="any" placeholder="Avg cups per Cust" required></div>
