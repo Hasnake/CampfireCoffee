@@ -1,43 +1,14 @@
 'use strict';
 
 var hours = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm',
-'1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm',];
+'1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm'];
 
 var round = function(number, precision) {
   return parseFloat(number.toFixed(precision));
 };
-
-//In the random number function,the plus 1 is to exclude the maximum boundary.
-//The Math.Floor is returning A number representing the largest integer less than or equal to the specified number.
-// Math.floor( 45.95); //  45
-// Math.floor( 45.05); //  45
-// Math.floor(  4   ); //   4
-// Math.floor(-45.05); // -46
-// Math.floor(-45.95); // -46
-// The Math.ceil return the smallest integer greater than or equal to the given number.
-//Math.ceil(.95);    // 1
-// Math.ceil(-7.004); // -7
-
 var randomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
-// There are different ways to create new objects:
-// 1.Define and create a single object, using an object literal.
-//Object initialiser or literal way.
-// { [ nameValuePair1[, nameValuePair2[, ...nameValuePairN] ] ] }
-// example: var person = {
-// firstName:"John",
- // lastName:"Doe",
- // age:50,
- // eyeColor:"blue",
-// };
-// 2.Define and create a single object, with the keyword new.
-// 3.Define an object constructor, and then create objects of the constructed type.
-
-//  Called as a constructor
-// new Object([value])
-
 var allStores = [ ];
 
 //The following code creates a prototype,'Store', and an object of that type, the 'Store'.
@@ -67,7 +38,7 @@ function Store(name, min, max, avgCupsperCust, avgTogoperCust) {
   //The push() method adds new items to the end of an array, and returns the new length.
   //The pop() method removes the last element from an array:
   allStores.push(this);
-};
+}
 
 Store.prototype.numberOfCustomersInEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
@@ -81,9 +52,9 @@ Store.prototype.totalDailyCustomers = function() {
   }
 };
 
-Store.prototype.cupsPerHour = function() {
+Store.prototype.cupsConsumedEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.cupsEachHour.push(parseFloat((this.customerEachHour[i] * this.averageCupsPerCust).toFixed(1)));
+    this.cupsEachHour.push(round((this.customerEachHour[i] * this.averageCupsPerCust),1));
   }
 };
 
@@ -95,19 +66,20 @@ Store.prototype.dailyCups = function() {
 
 Store.prototype.togoLbsPerHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.togoPoundsPerHour.push(parseFloat((this.customerEachHour[i] * this.averageTogoPoundsPerCust).toFixed(1)));
+    // this.togoPoundsPerHour.push(parseFloat((this.customerEachHour[i] * this.averageTogoPoundsPerCust).toFixed(1)));
+    this.togoPoundsPerHour.push(round(this.customerEachHour[i] * this.averageTogoPoundsPerCust, 1));
   }
 };
 
 Store.prototype.dailyLbs = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.totalTogoPoundsPerDay += parseFloat((this.togoPoundsPerHour[i]).toFixed(1));
+    this.totalTogoPoundsPerDay += round(this.togoPoundsPerHour[i], 1);
   }
 };
 
 Store.prototype.beansForCupsPerHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.BeansPerHourForMakingCups.push(parseFloat((this.cupsEachHour[i] / 16).toFixed(1)));
+    this.BeansPerHourForMakingCups.push(round((this.cupsEachHour[i] / 16), 1));
   }
 };
 
@@ -117,25 +89,25 @@ Store.prototype.beansForCupsDay = function() {
   }
 };
 
-Store.prototype.howManyBeansPerHour = function() {
+Store.prototype.amountOfBeansRequiredEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.beansPerHour.push(parseFloat((this.togoPoundsPerHour[i] + this.BeansPerHourForMakingCups[i]).toFixed(1)));
+    this.beansPerHour.push(round((this.togoPoundsPerHour[i] + this.BeansPerHourForMakingCups[i]), 1));
   }
 };
 
-Store.prototype.howManyBeansDelivered = function() {
+Store.prototype.amountOfBeansRequiredInaDay = function() {
   for (var i = 0; i < hours.length; i++) {
     this.totalBeansPerDay += this.beansPerHour[i];
   }
 };
 
-Store.prototype.howManyEmployeesPerHour = function() {
+Store.prototype.amountOfEmployeesRequiredPerHour = function() {
   for (var i = 0; i < hours.length; i++) {
     this.employeesPerHour.push(Math.ceil(this.customerEachHour[i] / 30));
   }
 };
 
-Store.prototype.howManyEmployeesPerDay = function() {
+Store.prototype.amountOfEmployeesRequiredInaDay = function() {
   for (var i = 0; i < hours.length; i++) {
     this.employeesPerDay += this.employeesPerHour[i];
   }
@@ -144,16 +116,16 @@ Store.prototype.howManyEmployeesPerDay = function() {
 Store.prototype.callAllMethods = function() {
   this.numberOfCustomersInEachHour();
   this.totalDailyCustomers();
-  this.cupsPerHour();
+  this.cupsConsumedEachHour();
   this.dailyCups();
   this.togoLbsPerHour();
   this.dailyLbs();
   this.beansForCupsPerHour();
   this.beansForCupsDay();
-  this.howManyBeansPerHour();
-  this.howManyBeansDelivered();
-  this.howManyEmployeesPerHour();
-  this.howManyEmployeesPerDay();
+  this.amountOfBeansRequiredEachHour();
+  this.amountOfBeansRequiredInaDay();
+  this.amountOfEmployeesRequiredPerHour();
+  this.amountOfEmployeesRequiredInaDay();
 };
 
 
@@ -169,7 +141,7 @@ function makeItAllHappen() {
   for (var i = 0; i < allStores.length; i++) {
     allStores[i].callAllMethods();
   }
-};
+}
 makeItAllHappen();
 
 //Summary
@@ -177,50 +149,39 @@ makeItAllHappen();
 //2.writing methods
 //
 
-
-
-
-
-
-
-
 //working on the Tables.
 
-var allCoffeeShopes = [ ];
-
-function CoffeeShope(name) {
-  this.name = name;
-  //
-  this.dailyTotalBeans = 0;
-  this.hourlyTotalBeans = [ ];
-  this.totalDailyEmployees = 0;
-  this.totalHourlyEmployees = [ ];
-  allCoffeeShopes.push(this);
+var CoffeeShope = {
+  name: 'Campfire Coffee',
+  dailyTotalBeans: 0,
+  hourlyTotalBeans: [ ],
+  totalDailyEmployees: 0,
+  totalHourlyEmployees: [ ]
 };
 
-CoffeeShope.prototype.dailyTotalBeansCalc = function() {
+CoffeeShope.dailyTotalBeansForEachStore = function() {
   for (var i = 0; i < allStores.length; i++) {
     this.dailyTotalBeans += allStores[i].totalBeansPerDay;
   }
 };
 
-CoffeeShope.prototype.hourlyBeanTotalCalc = function() {
-  for (var i = 0; i < hours.length; i++) {
+CoffeeShope.hourlyBeanRequiredInEachStore = function() {
+  for (var h = 0; h < hours.length; h++) {
     var counter = 0;
-    for (var j = 0; j < allStores.length; j++) {
-      counter += allStores[j].beansPerHour[i];
+    for (var s = 0; s < allStores.length; s++) {
+      counter += allStores[s].beansPerHour[h];
     }
     this.hourlyTotalBeans.push(round(counter, 1));
   }
 };
 
-CoffeeShope.prototype.dailyTotalStaffCalc = function() {
+CoffeeShope.amountOfDailyTotalEmployeeInEachStore = function() {
   for (var i = 0; i < allStores.length; i++) {
     this.totalDailyEmployees += allStores[i].employeesPerDay;
   }
 };
 
-CoffeeShope.prototype.hourlyStaffTotalCalc = function() {
+CoffeeShope.hourlyEmployeesInEachStore = function() {
   for (var i = 0; i < hours.length; i++) {
     var counter = 0;
     for (var j = 0; j < allStores.length; j++) {
@@ -230,31 +191,18 @@ CoffeeShope.prototype.hourlyStaffTotalCalc = function() {
   }
 };
 
-CoffeeShope.prototype.coffeeShopeAllMethods = function() {
-  this.dailyTotalBeansCalc();
-  this.dailyTotalStaffCalc();
-  this.hourlyBeanTotalCalc();
-  this.hourlyStaffTotalCalc();
-};
-
-function coffeeShopeCalcs() {
-  for (var i = 0; i < allCoffeeShopes.length; i++) {
-    allCoffeeShopes[i].coffeeShopeAllMethods();
-  }
-};
-
-new CoffeeShope('Coffee Shop');
-coffeeShopeCalcs();
+function coffeeShopeAllMethods() {
+  CoffeeShope.dailyTotalBeansForEachStore();
+  CoffeeShope.hourlyBeanRequiredInEachStore();
+  CoffeeShope.amountOfDailyTotalEmployeeInEachStore();
+  CoffeeShope.hourlyEmployeesInEachStore();
+}
+coffeeShopeAllMethods();
 
 //Rendering a table is building the HTML page in javascript and then inserted it into the DOM.
 // Document object Model specifies the browser should create a model of an HTML page and how javascript can access
 // and update the contents of a web page while it is in the browser window.
 var form = document.getElementById('form');
-var button = document.getElementById('fun-button');
-
-function populatingTheTable(idName) {
-  return document.getElementById(idName);
-};
 
 function createParentElement(element) {
   return document.createElement(element);
@@ -272,92 +220,109 @@ function loopForTableText(parent, element, content) {
   }
 }
 
-function makeTheFirstRow(idName,tContent1, tContent2, tContent3) {
-  var tableEl = populatingTheTable(idName);
+function makeRow(idName, tContent1, tContent2, tContent3) {
+  var tableEl = document.getElementById(idName);
 
   var rowEl = createParentElement('tr');
   makeAnElementWithText(rowEl, 'td', tContent1);
   makeAnElementWithText(rowEl, 'td', tContent2);
   loopForTableText(rowEl, 'td', tContent3);
   tableEl.appendChild(rowEl);
-
 }
 
-makeTheFirstRow('PoundsOfBeans',' ', 'Daily Location Total', hours);//The heading part for the PoundsOfBeans table.
+makeRow('lbs-head',' ', 'Daily Location Total', hours);//The heading part for the PoundsOfBeans table.
 
 function makeTheStoreRows() {
   for (var i = 0; i < allStores.length; i++) {
-    makeTheFirstRow('PoundsOfBeans', allStores[i].name,round(allStores[i].totalBeansPerDay,1), allStores[i].beansPerHour);
+    makeRow('lbs-body', allStores[i].name,round(allStores[i].totalBeansPerDay,1), allStores[i].beansPerHour);
   }
 }
 
 makeTheStoreRows();
 
-makeTheFirstRow('PoundsOfBeans', 'Daily Total', round(allCoffeeShopes[0].dailyTotalBeans,1), allCoffeeShopes[0].hourlyTotalBeans);//The last row.
+makeRow('lbs-foot', 'Daily Total', round(CoffeeShope.dailyTotalBeans,1), CoffeeShope.hourlyTotalBeans);//The last row.
 
-makeTheFirstRow('employees', ' ', 'Total', hours);
+makeRow('emp-head', ' ', 'Total', hours);
 
 
 function makeTheEmployeeRows() {
   for (var i = 0; i < allStores.length; i++) {
-    makeTheFirstRow('employees', allStores[i].name, allStores[i].employeesPerDay, allStores[i].employeesPerHour);
+    makeRow('emp-body', allStores[i].name, allStores[i].employeesPerDay, allStores[i].employeesPerHour);
   }
 }
 
 makeTheEmployeeRows();
 
-makeTheFirstRow('employees', 'Totals', allCoffeeShopes[0].totalDailyEmployees, allCoffeeShopes[0].totalHourlyEmployees);
+makeRow('emp-foot', 'Totals', CoffeeShope.totalDailyEmployees, CoffeeShope.totalHourlyEmployees);
 
 //Adding the submit add Event listner
 
-function handleButtonClick(event) {
-  alert('the button has been clicked. now we are having fun');
-  console.log(event.target);
+// function handleButtonClick(event) {
+//   alert('the button has been clicked. now we are having fun');
+//   console.log(event.target);
+// }
+
+function zeroTotals() {
+  CoffeeShope.dailyTotalBeans = 0;
+  CoffeeShope.hourlyTotalBeans = [];
+  CoffeeShope.totalDailyEmployees = 0;
+  CoffeeShope.totalHourlyEmployees = [ ];
+}
+
+function handleNewLbsRow(newStore) {
+  makeRow('lbs-body', newStore.name, round(newStore.totalBeansPerDay, 1), newStore.beansPerHour);
+  zeroTotals();
+  coffeeShopeAllMethods();
+  document.getElementById('lbs-foot').innerHTML = '';
+  makeRow('lbs-foot', 'Daily Total', round(CoffeeShope.dailyTotalBeans,1), CoffeeShope.hourlyTotalBeans);
+}
+
+function handleNewEmpRow(newStore) {
+  makeRow('emp-body', newStore.name, newStore.employeesPerDay, newStore.employeesPerHour);
+  zeroTotals();
+  coffeeShopeAllMethods();
+  document.getElementById('emp-foot').innerHTML = '';
+  makeRow('emp-foot', 'Totals', CoffeeShope.totalDailyEmployees, CoffeeShope.totalHourlyEmployees);
 }
 
 function handleFormSubmit(event) {
   event.preventDefault();
   var name = event.target.name.value;
-  var Min = parseFloat(event.target.minCustPerHour.value);
-  var Max = parseFloat(event.target.maxCustPerHour.value);
+  var Min = parseFloat(event.target.Min.value);
+  var Max = parseFloat(event.target.Max.value);
   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
   var newStore = new Store(name, Min, Max, avgCupsperCust, avgTogoperCust);
   newStore.callAllMethods();
-
-
+  handleNewLbsRow(newStore);
+  handleNewEmpRow(newStore);
 }
-
-button.addEventListener('click', handleButtonClick);
 form.addEventListener('submit', handleFormSubmit);
 
-// var form = document.getElementById('form');
-// var button = document.getElementById('fun-button');
-// function handleButtonClick(event) {
-//   alert('the button has been clicked. now we are having fun');
-//   console.log(event.target);
-// }
-//
-// function handleFormSubmit(event) {
-//   event.preventDefault();
-//   console.log(event);
-//
-//
-//   var name = event.target.name.value;
-//   var Min = parseFloat(event.target.minCustPerHour.value);
-//   var Max = parseFloat(event.target.maxCustPerHour.value);
-//   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
-//   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
-//   new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   var newStore = new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   newStore.callAllMethods();
+// There are different ways to create new objects:
+// 1.Define and create a single object, using an object literal.
+//Object initialiser or literal way.
+// { [ nameValuePair1[, nameValuePair2[, ...nameValuePairN] ] ] }
+// example: var person = {
+// firstName:"John",
+ // lastName:"Doe",
+ // age:50,
+ // eyeColor:"blue",
+// };
+// 2.Define and create a single object, with the keyword new.
+// 3.Define an object constructor, and then create objects of the constructed type.
 
-//   event.target.name.value = null;
-//   event.target.minCustPerHour.value = null;
-//   event.target.maxCustPerHour.value = null;
-//   event.target.avgCupsperCust.value = null;
-//   event.target.avgTogoperCust.value = null;
-// }
-//
-// button.addEventListener('click', handleButtonClick);
-// form.addEventListener('submit', handleFormSubmit);
+//  Called as a constructor
+// new Object([value])
+
+
+//In the random number function,the plus 1 is to exclude the maximum boundary.
+//The Math.Floor is returning A number representing the largest integer less than or equal to the specified number.
+// Math.floor( 45.95); //  45
+// Math.floor( 45.05); //  45
+// Math.floor(  4   ); //   4
+// Math.floor(-45.05); // -46
+// Math.floor(-45.95); // -46
+// The Math.ceil return the smallest integer greater than or equal to the given number.
+//Math.ceil(.95);    // 1
+// Math.ceil(-7.004); // -7

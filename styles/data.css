@@ -1,7 +1,7 @@
 body {
   font-size: 10px;
   font-family: Helvetica, sans-serif;
-  background-image:url('campsite-tent-night.jpg');
+  background-image:url('../assets/campsite-tent-night.jpg');
   background-size: auto;
 
 
@@ -37,12 +37,4 @@ fieldset{
   color:#ff0066;
   font-size: 14px;
 
-}
-button{
-  border-radius: 50%;
-  background-color: white;
-  color: black;
-  border: 4px solid #4CAF50;
-  font-size: 20px;
-  width: 30%
 }
