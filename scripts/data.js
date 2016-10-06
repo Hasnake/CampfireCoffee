@@ -6,38 +6,9 @@ var hours = ['6:00am','7:00am','8:00am','9:00am','10:00am','11:00am','12:00pm',
 var round = function(number, precision) {
   return parseFloat(number.toFixed(precision));
 };
-
-//In the random number function,the plus 1 is to exclude the maximum boundary.
-//The Math.Floor is returning A number representing the largest integer less than or equal to the specified number.
-// Math.floor( 45.95); //  45
-// Math.floor( 45.05); //  45
-// Math.floor(  4   ); //   4
-// Math.floor(-45.05); // -46
-// Math.floor(-45.95); // -46
-// The Math.ceil return the smallest integer greater than or equal to the given number.
-//Math.ceil(.95);    // 1
-// Math.ceil(-7.004); // -7
-
 var randomInteger = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
-// There are different ways to create new objects:
-// 1.Define and create a single object, using an object literal.
-//Object initialiser or literal way.
-// { [ nameValuePair1[, nameValuePair2[, ...nameValuePairN] ] ] }
-// example: var person = {
-// firstName:"John",
- // lastName:"Doe",
- // age:50,
- // eyeColor:"blue",
-// };
-// 2.Define and create a single object, with the keyword new.
-// 3.Define an object constructor, and then create objects of the constructed type.
-
-//  Called as a constructor
-// new Object([value])
-
 var allStores = [ ];
 
 //The following code creates a prototype,'Store', and an object of that type, the 'Store'.
@@ -81,9 +52,9 @@ Store.prototype.totalDailyCustomers = function() {
   }
 };
 
-Store.prototype.cupsPerHour = function() {
+Store.prototype.cupsConsumedEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.cupsEachHour.push(parseFloat((this.customerEachHour[i] * this.averageCupsPerCust).toFixed(1)));
+    this.cupsEachHour.push(round((this.customerEachHour[i] * this.averageCupsPerCust),1));
   }
 };
 
@@ -118,25 +89,25 @@ Store.prototype.beansForCupsDay = function() {
   }
 };
 
-Store.prototype.howManyBeansPerHour = function() {
+Store.prototype.amountOfBeansRequiredEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
     this.beansPerHour.push(round((this.togoPoundsPerHour[i] + this.BeansPerHourForMakingCups[i]), 1));
   }
 };
 
-Store.prototype.howManyBeansDelivered = function() {
+Store.prototype.amountOfBeansRequiredInaDay = function() {
   for (var i = 0; i < hours.length; i++) {
     this.totalBeansPerDay += this.beansPerHour[i];
   }
 };
 
-Store.prototype.howManyEmployeesPerHour = function() {
+Store.prototype.amountOfEmployeesRequiredPerHour = function() {
   for (var i = 0; i < hours.length; i++) {
     this.employeesPerHour.push(Math.ceil(this.customerEachHour[i] / 30));
   }
 };
 
-Store.prototype.howManyEmployeesPerDay = function() {
+Store.prototype.amountOfEmployeesRequiredInaDay = function() {
   for (var i = 0; i < hours.length; i++) {
     this.employeesPerDay += this.employeesPerHour[i];
   }
@@ -145,16 +116,16 @@ Store.prototype.howManyEmployeesPerDay = function() {
 Store.prototype.callAllMethods = function() {
   this.numberOfCustomersInEachHour();
   this.totalDailyCustomers();
-  this.cupsPerHour();
+  this.cupsConsumedEachHour();
   this.dailyCups();
   this.togoLbsPerHour();
   this.dailyLbs();
   this.beansForCupsPerHour();
   this.beansForCupsDay();
-  this.howManyBeansPerHour();
-  this.howManyBeansDelivered();
-  this.howManyEmployeesPerHour();
-  this.howManyEmployeesPerDay();
+  this.amountOfBeansRequiredEachHour();
+  this.amountOfBeansRequiredInaDay();
+  this.amountOfEmployeesRequiredPerHour();
+  this.amountOfEmployeesRequiredInaDay();
 };
 
 
@@ -178,13 +149,6 @@ makeItAllHappen();
 //2.writing methods
 //
 
-
-
-
-
-
-
-
 //working on the Tables.
 
 var CoffeeShope = {
@@ -193,31 +157,31 @@ var CoffeeShope = {
   hourlyTotalBeans: [ ],
   totalDailyEmployees: 0,
   totalHourlyEmployees: [ ]
-}
+};
 
-CoffeeShope.dailyTotalBeansCalc = function() {
+CoffeeShope.dailyTotalBeansForEachStore = function() {
   for (var i = 0; i < allStores.length; i++) {
     this.dailyTotalBeans += allStores[i].totalBeansPerDay;
   }
 };
 
-CoffeeShope.hourlyBeanTotalCalc = function() {
-  for (var i = 0; i < hours.length; i++) {
+CoffeeShope.hourlyBeanRequiredInEachStore = function() {
+  for (var h = 0; h < hours.length; h++) {
     var counter = 0;
-    for (var j = 0; j < allStores.length; j++) {
-      counter += allStores[j].beansPerHour[i];
+    for (var s = 0; s < allStores.length; s++) {
+      counter += allStores[s].beansPerHour[h];
     }
     this.hourlyTotalBeans.push(round(counter, 1));
   }
 };
 
-CoffeeShope.dailyTotalStaffCalc = function() {
+CoffeeShope.amountOfDailyTotalEmployeeInEachStore = function() {
   for (var i = 0; i < allStores.length; i++) {
     this.totalDailyEmployees += allStores[i].employeesPerDay;
   }
 };
 
-CoffeeShope.hourlyStaffTotalCalc = function() {
+CoffeeShope.hourlyEmployeesInEachStore = function() {
   for (var i = 0; i < hours.length; i++) {
     var counter = 0;
     for (var j = 0; j < allStores.length; j++) {
@@ -228,10 +192,10 @@ CoffeeShope.hourlyStaffTotalCalc = function() {
 };
 
 function coffeeShopeAllMethods() {
-  CoffeeShope.dailyTotalBeansCalc();
-  CoffeeShope.dailyTotalStaffCalc();
-  CoffeeShope.hourlyBeanTotalCalc();
-  CoffeeShope.hourlyStaffTotalCalc();
+  CoffeeShope.dailyTotalBeansForEachStore();
+  CoffeeShope.hourlyBeanRequiredInEachStore();
+  CoffeeShope.amountOfDailyTotalEmployeeInEachStore();
+  CoffeeShope.hourlyEmployeesInEachStore();
 }
 coffeeShopeAllMethods();
 
@@ -333,37 +297,32 @@ function handleFormSubmit(event) {
   handleNewLbsRow(newStore);
   handleNewEmpRow(newStore);
 }
-
-// button.addEventListener('click', handleButtonClick);
 form.addEventListener('submit', handleFormSubmit);
 
-// var form = document.getElementById('form');
-// var button = document.getElementById('fun-button');
-// function handleButtonClick(event) {
-//   alert('the button has been clicked. now we are having fun');
-//   console.log(event.target);
-// }
-//
-// function handleFormSubmit(event) {
-//   event.preventDefault();
-//   console.log(event);
-//
-//
-//   var name = event.target.name.value;
-//   var Min = parseFloat(event.target.minCustPerHour.value);
-//   var Max = parseFloat(event.target.maxCustPerHour.value);
-//   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
-//   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
-//   new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   var newStore = new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   newStore.callAllMethods();
+// There are different ways to create new objects:
+// 1.Define and create a single object, using an object literal.
+//Object initialiser or literal way.
+// { [ nameValuePair1[, nameValuePair2[, ...nameValuePairN] ] ] }
+// example: var person = {
+// firstName:"John",
+ // lastName:"Doe",
+ // age:50,
+ // eyeColor:"blue",
+// };
+// 2.Define and create a single object, with the keyword new.
+// 3.Define an object constructor, and then create objects of the constructed type.
 
-//   event.target.name.value = null;
-//   event.target.minCustPerHour.value = null;
-//   event.target.maxCustPerHour.value = null;
-//   event.target.avgCupsperCust.value = null;
-//   event.target.avgTogoperCust.value = null;
-// }
-//
-// button.addEventListener('click', handleButtonClick);
-// form.addEventListener('submit', handleFormSubmit);
+//  Called as a constructor
+// new Object([value])
+
+
+//In the random number function,the plus 1 is to exclude the maximum boundary.
+//The Math.Floor is returning A number representing the largest integer less than or equal to the specified number.
+// Math.floor( 45.95); //  45
+// Math.floor( 45.05); //  45
+// Math.floor(  4   ); //   4
+// Math.floor(-45.05); // -46
+// Math.floor(-45.95); // -46
+// The Math.ceil return the smallest integer greater than or equal to the given number.
+//Math.ceil(.95);    // 1
+// Math.ceil(-7.004); // -7
