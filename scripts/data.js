@@ -149,13 +149,6 @@ makeItAllHappen();
 //2.writing methods
 //
 
-
-
-
-
-
-
-
 //working on the Tables.
 
 var CoffeeShope = {
