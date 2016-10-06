@@ -81,9 +81,9 @@ Store.prototype.totalDailyCustomers = function() {
   }
 };
 
-Store.prototype.cupsPerHour = function() {
+Store.prototype.cupsConsumedEachHour = function() {
   for (var i = 0; i < hours.length; i++) {
-    this.cupsEachHour.push(parseFloat((this.customerEachHour[i] * this.averageCupsPerCust).toFixed(1)));
+    this.cupsEachHour.push(round((this.customerEachHour[i] * this.averageCupsPerCust),1));
   }
 };
 
@@ -145,7 +145,7 @@ Store.prototype.howManyEmployeesPerDay = function() {
 Store.prototype.callAllMethods = function() {
   this.numberOfCustomersInEachHour();
   this.totalDailyCustomers();
-  this.cupsPerHour();
+  this.cupsConsumedEachHour();
   this.dailyCups();
   this.togoLbsPerHour();
   this.dailyLbs();
@@ -193,7 +193,7 @@ var CoffeeShope = {
   hourlyTotalBeans: [ ],
   totalDailyEmployees: 0,
   totalHourlyEmployees: [ ]
-}
+};
 
 CoffeeShope.dailyTotalBeansCalc = function() {
   for (var i = 0; i < allStores.length; i++) {
@@ -334,36 +334,4 @@ function handleFormSubmit(event) {
   handleNewEmpRow(newStore);
 }
 
-// button.addEventListener('click', handleButtonClick);
 form.addEventListener('submit', handleFormSubmit);
-
-// var form = document.getElementById('form');
-// var button = document.getElementById('fun-button');
-// function handleButtonClick(event) {
-//   alert('the button has been clicked. now we are having fun');
-//   console.log(event.target);
-// }
-//
-// function handleFormSubmit(event) {
-//   event.preventDefault();
-//   console.log(event);
-//
-//
-//   var name = event.target.name.value;
-//   var Min = parseFloat(event.target.minCustPerHour.value);
-//   var Max = parseFloat(event.target.maxCustPerHour.value);
-//   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
-//   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
-//   new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   var newStore = new Store(name, min, max, avgCupsperCust, avgTogoperCust);
-//   newStore.callAllMethods();
-
-//   event.target.name.value = null;
-//   event.target.minCustPerHour.value = null;
-//   event.target.maxCustPerHour.value = null;
-//   event.target.avgCupsperCust.value = null;
-//   event.target.avgTogoperCust.value = null;
-// }
-//
-// button.addEventListener('click', handleButtonClick);
-// form.addEventListener('submit', handleFormSubmit);
