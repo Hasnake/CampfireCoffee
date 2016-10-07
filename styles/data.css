@@ -1,11 +1,18 @@
-body {
-  font-size: 10px;
-  font-family: Helvetica, sans-serif;
-  background-image:url('../assets/campsite-tent-night.jpg');
-  background-size: auto;
+body
+{
+
+  animation: pulse 5s infinite;
 
 
+}
 
+@keyframes pulse {
+  0% {
+    background-color: #0AA0CF;
+  }
+  100% {
+    background-color: #0DDF0A;
+  }
 }
 
 h1{
