@@ -30,5 +30,3 @@ for (var i = 0;i < storeLocations.length;i++){
   liEl.textContent = storeLocations[i] ;
   ulEl.appendChild(liEl);
 }
-// storeLocationsEl.appendChild(ulEl);
-// document.body.appendChild(storeLocationsEl);
