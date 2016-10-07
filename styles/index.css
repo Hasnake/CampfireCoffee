@@ -1,20 +1,6 @@
 body
 {
-  animation: pulse 3s infinite;
-  background-size: 50%;
-  background-image: url("../assets/campfire-family.jpg");
-
-
-
-}
-
-@keyframes pulse {
-  0% {
-    background-color: #00aabb;
-  }
-  100% {
-    background-color: 00abcd;
-  }
+background-image: url("../assets/campsite-tent-night.jpg"),url("../assets/campfire-family.jpg");
 }
 h1{
   margin: 0;
