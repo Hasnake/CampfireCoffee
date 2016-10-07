@@ -288,8 +288,8 @@ function handleNewEmpRow(newStore) {
 function handleFormSubmit(event) {
   event.preventDefault();
   var name = event.target.name.value;
-  var Min = parseFloat(event.target.Min.value);
-  var Max = parseFloat(event.target.Max.value);
+  var Min = parseFloat(event.target.minCustPerHour.value);
+  var Max = parseFloat(event.target.maxCustPerHour.value);
   var avgCupsperCust = parseFloat(event.target.avgCupsperCust.value);
   var avgTogoperCust = parseFloat(event.target.avgTogoperCust.value);
   var newStore = new Store(name, Min, Max, avgCupsperCust, avgTogoperCust);
