@@ -28,7 +28,12 @@ li
   font-style: italic;
 
 }
+a{
+font-size: 3em;
+font-weight: 900;
+}
 a:hover
 {
+  font-size: 3em;
   background-color: yellow;
 }
