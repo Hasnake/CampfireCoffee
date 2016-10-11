@@ -9,16 +9,7 @@ document.body.appendChild(h1El);
 var t = document.createTextNode('This is the public page for the camfire coffee project.');
 document.body.appendChild(t);
 
-var h2El = document.createElement('h1');
-h2El.textContent = 'Internal page';
-document.body.appendChild(h2El);
 
-var a = document.createElement('a');
-var linkText = document.createTextNode('Internal page');
-a.appendChild(linkText);
-a.title = 'Internal page' ;
-a.href = 'pages/data.html';
-document.body.appendChild(a);
 
 var storeLocations = ['Pike Place Market','Capitol Hill','Seattle Public Library','South Lake Union','SeaTac Airport'];
 // var storeLocationsEl = document.getElementById('storeLocations');
@@ -30,3 +21,13 @@ for (var i = 0;i < storeLocations.length;i++){
   liEl.textContent = storeLocations[i] ;
   ulEl.appendChild(liEl);
 }
+var h2El = document.createElement('h1');
+h2El.textContent = 'Internal page';
+document.body.appendChild(h2El);
+
+var a = document.createElement('a');
+var linkText = document.createTextNode('Internal page');
+a.appendChild(linkText);
+a.title = 'Internal page' ;
+a.href = 'pages/data.html';
+document.body.appendChild(a);
