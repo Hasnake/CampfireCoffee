@@ -2,8 +2,33 @@ body
 {
 background-image: url("../assets/campsite-tent-night.jpg"),url("../assets/campfire-family.jpg");
 }
-h1{
+h1
+{
   margin: 0;
   text-align: center;
   color: blue;
+}
+p
+{
+  color:#FF0000;
+  font-weight: bold;
+}
+ol
+{
+  color:#FF0000;
+  font-weight: bold;
+  background-image: url("../assets/campfire-family.jpg");
+}
+
+
+li
+{
+  color:rgba(255,0,0,0.7);
+  font-weight: bold;
+  font-style: italic;
+
+}
+a:hover
+{
+  background-color: yellow;
 }
