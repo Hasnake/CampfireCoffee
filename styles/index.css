@@ -1,6 +1,7 @@
 body
 {
-background-image: url("../assets/campsite-tent-night.jpg"),url("../assets/campfire-family.jpg");
+background-image: url("../assets/campsite-tent-night.jpg");
+background-attachment: scroll;
 }
 h1
 {
@@ -18,6 +19,7 @@ ol
   color:#FF0000;
   font-weight: bold;
   background-image: url("../assets/campfire-family.jpg");
+  background-repeat: no-repeat;
 }
 
 
